@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Monster Magnet</title>
+
+    <link rel="stylesheet" href="assets/styles.css">
+
+</head>
+
+<body>
+
+    <nav>
+
+        <h1>Monster Magnet</h1>
+
+        <ul>
+            <li>
+                <a href="#main-content" aria-label="Home, current page">Home</a>
+            </li>
+            <li>
+                <a href="producten.html">Producten</a>
+
+                <ul>
+                    <li>
+                        <a href="order.html">Monster Magnet in Concert</a>
+                    </li>
+                    <li>
+                        <a href="order.html">Monster Magnet Trowback </a>
+                    </li>
+                    <li>
+                        <a href="order.html">Monster Magnet on Tour</a>
+                    </li>
+                </ul>
+
+            </li>
+            <li>
+                <a href="chat.html">Chat</a>
+            </li>
+            <li>
+                <a href="login">Inloggen</a>
+            </li>
+        </ul>
+
+    </nav>
+
+    <main>
+        <nav>
+
+            <h1>Finish your order</h1>
+
+            <progress value="0.25" max="1">25%</progress>
+
+            <ol>
+                <li>
+                    <a href="/cart">Cart</a>
+                </li>
+                <li>
+                    <a href="#main-content" aria-label="Address, current step">Address</a>
+                </li>
+                <li>
+                    Payment
+                </li>
+                <li>
+                    Confirm
+                </li>
+            </ol>
+
+        </nav>
+        <form action="index.html" method="post">
+
+            <label for="field-email">Email</label>
+            <input type="email" id="field-email" name="field-email" autocomplete="email" required autofocus>
+
+            <label for="field-password">Wachtwoord</label>
+            <input type="password" id="field-password" name="field-password" required>
+
+            <input type="checkbox" id="field-stay-logged-in" name="field-stay-logged-in" value="stay-logged-in">
+            <label for="field-stay-logged-in">Blijf ingelogd</label>
+
+            <a href="index.html">Wachtwoord vergeten</a>
+
+            <button type="submit">Inloggen</button>
+
+        </form>
+
+    </main>
+
+    <footer>
+        © 2018
+        <a href="index.html">Victor Zumpolle</a>
+    </footer>
+
+</body>
+
+</html>
