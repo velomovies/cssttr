@@ -1,7 +1,9 @@
 :root {
     --main-black: #353535;
+    --light-black: #989898;
     --main-white: #C0C0C0;
     --main-gray: #E4E4E4;
+    --white: #FFFFFF;
     --serif: Tissa-Regular, serif;
     --sans-serif: Questrial-Regular, sans-serif;
 }

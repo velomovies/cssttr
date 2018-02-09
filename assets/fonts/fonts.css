@@ -7,3 +7,9 @@
     font-family: Questrial-Regular;
     src: url(Questrial-Regular.ttf);
 }
+
+@font-face {
+    font-family: Baskerville;
+    src: url(LibreBaskerville-Italic.otf);
+    unicode-range: U+26;
+}
