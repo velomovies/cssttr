@@ -98,8 +98,14 @@ body > nav {
     box-shadow: .1em .1em 1em var(--main-gray);
 }
 
+@media (max-width: 50em) {
+    body > nav {
+        grid-template-columns: 1fr;
+    }
+}
+
 body > nav img {
-    width: 25%;
+    width: 20%;
     margin: .5em;
 }
 
@@ -206,72 +212,10 @@ main > h1 {
   font-size: 1.5em;
 }
 
-fieldset svg {
-    min-width: 2.5em;
-    max-width: 10%;
-}
-
-fieldset {
-    border: 0;
-    padding: 0;
-}
-
-fieldset div {
-    display: grid;
-    grid-auto-flow: column;
-    justify-content: space-between;
-    width: 60%;
-}
-
 @media (max-width: 50em) {
-  fieldset div {
-    width: 100%;
+    main > h1 {
+        margin-left: .5em;
     }
-}
-
-fieldset legend {
-  margin-bottom: 1em;
-}
-
-input[type="radio"] {
-    position: absolute;
-    opacity: 0;
-    left: -999px;
-}
-
-input[type="radio"] + label {
-    display: grid;
-    grid-gap: .5em;
-    justify-items: center;
-    font-size: .8em;
-    transform: scale(1); 
-    transition: all .3s;
-    cursor: url(images/cursor.png), pointer; 
-}
-
-input[type="radio"] + label > svg {
-    transform: scale(1);
-    filter: grayscale(100%);
-    transition: all .3s; 
-}
-
-input[type="radio"] + label:hover > svg,
-input[type="radio"]:focus + label > svg {
-  transform: scale(1);
-  filter: grayscale(0);
-  transform: all .3s;
-  animation: breathing 1s infinite ease-in-out;
-}
-
-input[type="radio"]:checked + label > svg {
-  transform: scale(1.5);
-  filter: grayscale(0);
-  transform: all .3s;
-  animation: breathing2 2s infinite ease-in-out;
-}
-
-input[type="radio"]:checked + label {
-    color: var(--highlight);
 }
 
 /*
@@ -325,6 +269,10 @@ main > article a:focus {
 
 main > article h1 {
     grid-area: title;
+}
+
+main h1 + article > h1 {
+    margin: 0;
 }
 
 main > article img {
@@ -383,13 +331,22 @@ progress + ol {
     list-style: none;
     grid-auto-flow: column;
     margin: 0;
+    padding: 0 .5em;
 }
 
 progress + ol li {
+    align-self: center;
     z-index: 1;
     background: #ffffff;
     margin: 1em;
     box-sizing: border-box;
+}
+
+@media (max-width: 25em) {
+    progress + ol li {
+        margin: 1em 0;
+        font-size: .8em;
+    }
 }
 
 progress + ol li a {
@@ -427,13 +384,17 @@ progress + ol li:nth-of-type(2):before {
 -----------------------
 */
 
-
-
 nav + form {
     display: grid;
     margin-top: 2em;
     grid-auto-flow: column;
     grid-gap: .5em;
+}
+
+@media (max-width: 50em) {
+    nav + form {
+        grid-auto-flow: row;
+    }
 }
 
 form article,
@@ -529,14 +490,14 @@ form div input {
 form div input:invalid {
     border: none;
     border-bottom: .1em solid var(--light-black);
-    box-shadow: .2em 0 var(--highlight);
+    box-shadow: -.2em 0 var(--highlight);
     transition: all .3s;
 }
 
 form div input:valid,
 form div input:valid:focus {
     border: none;
-    box-shadow: .3em 0 green;
+    box-shadow: -.3em 0 green;
     border-bottom: .2em solid green;
     transition: all .3s;
 }
@@ -547,8 +508,14 @@ form div input:invalid ~ button {
 
 form div input ~ button:hover,
 form div input ~ button:focus {
-    transform: scale(1.05);
     box-shadow: 0 0 .1em var(--highlight);
+}
+
+form div input:valid ~ button:hover,
+form div input:valid ~ button:focus {
+    transform: scale(1.05);
+    background: var(--highlight-trans);
+    border: .1em solid var(--highlight);
 }
 
 form div input:focus {
@@ -560,7 +527,7 @@ form div input[type="checkbox"] {
     left: -999px;
 }
 
-button, input[type='submit'] {
+form div input ~ button, input[type='submit'] {
     background: var(--highlight);
     border: 0;
     padding: 1em;
@@ -586,13 +553,24 @@ section:target {
 }
 
 main + section {
-    box-shadow: 0 0 0 50vmax rgba(0,0,0,.8);
+    box-shadow: 0 0 0 60vmax rgba(0,0,0,.8);
     z-index: 9999;
     position: absolute;
     left: 50%;
     top: 1em;
     transform: translate(-50%);
     background-color: #ffffff;
+}
+
+article > h1 {
+    margin: 1em;
+}
+
+figure {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0;
+    overflow: hidden;
 }
 
 figure div {
@@ -613,7 +591,126 @@ figure div {
 figure img {
     opacity: 0;
     animation: inOut 1s forwards;
-    animation-delay: 1s;
+    animation-delay: .5s;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+}
+
+figure figcaption {
+    transform: translateY(200%) translateZ(0);
+    z-index: 1;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    padding: 1em;
+    align-self: baseline;
+    z-index: 99;
+    transition: all .3s;
+    align-self: end;
+    background: linear-gradient(#00000099, #000000);
+}
+
+figure:hover figcaption {
+    transform: translateY(0);
+}
+
+figure figcaption p {
+    color: #ffffff;
+}
+
+figure figcaption footer {
+    color: var(--light-black);
+    margin-top: 1em;
+}
+
+article + fieldset {
+    margin-top: 1em;
+    padding: 1em;
+}
+
+@media (max-width: 50em) {
+    main + section {
+        width: 100%;
+        left: 0;
+        transform: translate(0);
+    }
+    figure figcaption {
+        transform: translateY(0);
+    }
+}
+
+/*
+-----------------------
+ ------ RATING  ------ 
+-----------------------
+*/
+
+fieldset svg {
+    min-width: 2.5em;
+    max-width: 10%;
+}
+
+fieldset {
+    border: 0;
+    padding: 0;
+}
+
+fieldset div {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    width: 60%;
+}
+
+@media (max-width: 50em) {
+  fieldset div {
+    width: 100%;
+    }
+}
+
+fieldset legend {
+  margin-bottom: 1em;
+}
+
+input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    left: -999px;
+}
+
+input[type="radio"] + label {
+    display: grid;
+    grid-gap: .5em;
+    justify-items: center;
+    font-size: .8em;
+    transform: scale(1); 
+    transition: all .3s;
+    cursor: url(images/cursor.png), pointer; 
+}
+
+input[type="radio"] + label > svg {
+    transform: scale(1);
+    filter: grayscale(100%);
+    animation: inOut 1s forwards;
+    transition: all .3s; 
+}
+
+input[type="radio"] + label:hover > svg,
+input[type="radio"]:focus + label > svg {
+  transform: scale(1);
+  filter: grayscale(0);
+  transform: all .3s;
+  animation: breathing 1s infinite ease-in-out;
+}
+
+input[type="radio"]:checked + label > svg {
+  transform: scale(1.5);
+  filter: grayscale(0);
+  transform: all .3s;
+  animation: breathing2 2s infinite ease-in-out;
+}
+
+input[type="radio"]:checked + label {
+    color: var(--highlight);
 }
 
 /*
@@ -660,7 +757,7 @@ main > ol span div {
 main > ol li {
     display: grid;
     background: var(--main-black-transless);
-    padding: 1em;
+    padding: 1em 1em .5em 1em;
     border-radius: .5em;
     text-align: left;
     margin: 1em;
@@ -679,6 +776,7 @@ main > ol li:nth-of-type(1) {
 }
 
 main > ol li > p {
+    margin-bottom: 1em;
     color: #ffffff;
 }
 
@@ -691,10 +789,14 @@ main > ol li:nth-of-type(even) p {
 }
 
 main > ol li p[data-status="DELIVERED"]:before {
+    margin-left: .5em;
+    color: var(--light-black);
     content: "\2713 ";
 }
 
 main > ol li p[data-status="READ"]:before {
+    margin-left: .5em;
+    color: var(--main-gray);
     content: "\2713 \2713 ";
 }
 
@@ -704,7 +806,7 @@ main > ol li footer {
 }
 
 main > ol li footer time {
-    font-family: var(--sans-serif);
+    font-family: var(--serif);
     color: var(--light-black);
 }
 
@@ -723,10 +825,51 @@ ol + form {
     grid-auto-flow: column;
 }
 
-ol + form textarea {
-    resize: none;
+@media (max-width: 50em) {
+    ol + form {
+        padding: 0 .5em;
+    }
 }
 
+ol p {
+    font-family: var(--sans-serif);
+}
+
+ol + form textarea {
+    font-family: var(--sans-serif);
+    padding: 1em 1em 0 1em;
+    margin-right: .5em;
+    resize: none;
+    border: none;
+    border-bottom: .1em solid var(--light-black);
+    transition: all .3s;
+}
+
+form textarea + button {
+    background: var(--highlight);
+    border: 0;
+    padding: 1em;
+    width: 100%;
+    color: #ffffff;
+    cursor: url(images/cursor.png), pointer;
+    transition: all .3s;
+    border-radius: 0 .3em .3em 0;
+}
+
+form textarea:focus {
+    box-shadow: -.3em 0 var(--highlight);
+    border-bottom: .1em solid var(--highlight);
+}
+
+form textarea:focus::placeholder {
+    color: var(--highlight);
+}
+
+form textarea + button:hover,
+form textarea + button:focus {
+    background: var(--highlight-trans);
+    transform: scale(1.02);
+}
 
 /*
 -----------------------
@@ -819,8 +962,3 @@ footer a {
         transform: translateX(0)
     }
 } 
-
-
-
-
-
