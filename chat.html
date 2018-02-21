@@ -3,107 +3,97 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Monster Magnet</title>
+  <title>Monster Magnet</title>
 
-    <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/styles.css">
 
 </head>
 
 <body>
 
-    <nav>
+  <nav>
 
-        <h1>Monster Magnet</h1>
+    <img src="assets/images/MonsterMagnet.png" alt="Monster Magent Logo">
+
+    <ul>
+      <li>
+        <a href="index.html">Home</a>
+      </li>
+      <li>
+        <a href="index.html#image">Producten</a>
 
         <ul>
-            <li>
-                <a href="index.html">Home</a>
-            </li>
-            <li>
-                <a href="order.html">Producten</a>
-
-                <ul>
-                    <li>
-                        <a href="order.html">Monster Magnet in Concert</a>
-                    </li>
-                    <li>
-                        <a href="order.html">Monster Magnet Trowback </a>
-                    </li>
-                    <li>
-                        <a href="order.html">Monster Magnet on Tour</a>
-                    </li>
-                </ul>
-
-            </li>
-            <li>
-                <a href="chat.html" aria-label="current">Chat</a>
-            </li>
-            <li>
-                <a href="login.html">Inloggen</a>
-            </li>
+          <li>
+            <a href="index.html#image">Monster Magnet in Concert</a>
+          </li>
+          <li>
+            <a href="index.html#image">Monster Magnet Trowback </a>
+          </li>
+          <li>
+            <a href="index.html#image">Monster Magnet on Tour</a>
+          </li>
         </ul>
 
-    </nav>
+      </li>
+      <li>
+        <a href="chat.html" aria-label="current">Chat</a>
+      </li>
+      <li>
+        <a href="login.html">Inloggen</a>
+      </li>
+    </ul>
 
-    <main>
-        <ol>
-            <li>
+  </nav>
 
-                <p>
-                    Hey!
-                </p>
+  <main>
+    <h1>Klantenservice</h1>
 
-                <footer>
-                    <p>Posted on
-                        <time datatime="2015-01-22T10:25">10:25 AM</time> by you</p>
-                    <p data-status="READ">Has been read</p>
-                </footer>
+    <ol>
+      <span><div>22 januari 2015</div></span>
 
-            </li>
-            <li>
+      <li>
+        <p>Hey!</p>
+        <footer>
+          <p><time datatime="2015-01-22T10:25">10:25</time></p>
+          <p data-status="READ"></p>
+        </footer>
+      </li>
 
-                <p>
-                    Hey! Sorry I was busy
-                </p>
+      <span>3 februari 2017</span>
 
-                <footer>
-                    <p>Posted on
-                        <time datatime="2017-02-03T14:19">2:19 PM</time> by John</p>
-                </footer>
+      <li>
+        <p>Hey! Sorry I was busy</p>
+        <footer>
+          <p><time datatime="2017-02-03T14:19">14:19</time></p>
+        </footer>
+      </li>
 
-            </li>
-            <li>
+      <li>
+        <p>I sent that 2 years ago</p>
+        <footer>
+          <p><time datatime="2017-02-03T14:22">14:22</time></p>
+          <p data-status="DELIVERED"></p>
+        </footer>
+      </li>
+    </ol>
 
-                <p>
-                    I sent that 2 years ago
-                </p>
+    <form action="index.html" method="post">
 
-                <footer>
-                    <p>Posted on
-                        <time datatime="2017-02-03T14:22">2:22 PM</time> by you</p>
-                    <p data-status="DELIVERED">Has been delivered</p>
-                </footer>
+      <label for="field-message">Bericht</label>
+      <textarea name="field-message" id="field-message" placeholder="Verstuur je bericht..."></textarea>
 
-            </li>
-        </ol>
+      <button type="submit">Verzenden</button>
 
-        <form action="/" method="post">
+    </form>
+  </main>
 
-            <label for="field-message">Message</label>
-            <textarea name="field-message" id="field-message"></textarea>
-
-            <button type="submit">Send</button>
-
-        </form>
-    </main>
-
-    <footer role="contentinfo">
-        © 2018
-        <a href="index.html">Victor Zumpolle</a>
-    </footer>
+  <footer role="contentinfo">
+    © 2018
+    <a href="index.html">Victor Zumpolle</a>
+  </footer>
 
 </body>
 

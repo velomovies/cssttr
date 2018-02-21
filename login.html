@@ -3,94 +3,98 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Monster Magnet</title>
+	<title>Monster Magnet</title>
 
-    <link rel="stylesheet" href="assets/styles.css">
+	<link rel="stylesheet" href="assets/styles.css">
 
 </head>
 
 <body>
 
-    <nav>
+	<nav>
 
-        <h1>Monster Magnet</h1>
+		<img src="assets/images/MonsterMagnet.png" alt="Monster Magent Logo">
 
-        <ul>
-            <li>
-                <a href="index.html">Home</a>
-            </li>
-            <li>
-                <a href="order.html">Producten</a>
+		<ul>
+			<li>
+				<a href="index.html">Home</a>
+			</li>
+			<li>
+				<a href="index.html#image">Producten</a>
 
-                <ul>
-                    <li>
-                        <a href="order.html">Monster Magnet in Concert</a>
-                    </li>
-                    <li>
-                        <a href="order.html">Monster Magnet Trowback </a>
-                    </li>
-                    <li>
-                        <a href="order.html">Monster Magnet on Tour</a>
-                    </li>
-                </ul>
+				<ul>
+					<li>
+						<a href="index.html#image">Monster Magnet in Concert</a>
+					</li>
+					<li>
+						<a href="index.html#image">Monster Magnet Trowback </a>
+					</li>
+					<li>
+						<a href="index.html#image">Monster Magnet on Tour</a>
+					</li>
+				</ul>
 
-            </li>
-            <li>
-                <a href="chat.html">Chat</a>
-            </li>
-            <li>
-                <a href="login.html" aria-label="current">Inloggen</a>
-            </li>
-        </ul>
+			</li>
+			<li>
+				<a href="chat.html">Chat</a>
+			</li>
+			<li>
+				<a href="login.html" aria-label="current">Inloggen</a>
+			</li>
+		</ul>
 
-    </nav>
+	</nav>
 
-    <main>
-        <nav>
-            <progress value="0.25" max="1">25%</progress>
+	<main>
+		<nav>
+			<progress value="0.25" max="1">25%</progress>
 
-            <ol>
-                <li>
-                    <a href="index.html">Kiezen</a>
-                </li>
-                <li>
-                    <a href="#main-content" aria-label="Address, current step">Inloggen</a>
-                </li>
-                <li>
-                    profiel
-                </li>
-                <li>
-                    betalen
-                </li>
-            </ol>
+			<ol>
+				<li>
+					<a href="index.html">Kiezen</a>
+				</li>
+				<li>
+					<a href="#main-content" aria-label="Address, current step">Inloggen</a>
+				</li>
+				<li>
+					profiel
+				</li>
+				<li>
+					betalen
+				</li>
+			</ol>
 
-        </nav>
-        <form action="index.html" method="post">
+		</nav>
+		<form action="index.html" method="post">
+			<article>
+				<h2>Login</h2>
+			</article>
+			<div>
+				<label for="field-email">Email</label>
+				<input type="email" id="field-email" name="field-email" autocomplete="email" placeholder="Email-adress" required autofocus>
 
-            <label for="field-email">Email</label>
-            <input type="email" id="field-email" name="field-email" autocomplete="email" required autofocus>
+				<label for="field-password">Wachtwoord</label>
+				<input type="password" id="field-password" name="field-password" placeholder="Wachtwoord" required>
 
-            <label for="field-password">Wachtwoord</label>
-            <input type="password" id="field-password" name="field-password" required>
+				<div>
+					<input type="checkbox" id="field-stay-logged-in" name="field-stay-logged-in" value="stay-logged-in">
+					<label for="field-stay-logged-in">Blijf ingelogd</label>
 
-            <input type="checkbox" id="field-stay-logged-in" name="field-stay-logged-in" value="stay-logged-in">
-            <label for="field-stay-logged-in">Blijf ingelogd</label>
+					<a href="index.html">Wachtwoord vergeten</a>
+				</div>
 
-            <a href="index.html">Wachtwoord vergeten</a>
+				<button type="submit">Inloggen</button>
+			</div>
+		</form>
+	</main>
 
-            <button type="submit">Inloggen</button>
-
-        </form>
-
-    </main>
-
-    <footer role="contentinfo">
-        © 2018
-        <a href="index.html">Victor Zumpolle</a>
-    </footer>
+	<footer role="contentinfo">
+		© 2018
+		<a href="index.html">Victor Zumpolle</a>
+	</footer>
 
 </body>
 

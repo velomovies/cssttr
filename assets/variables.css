@@ -1,5 +1,7 @@
 :root {
     --main-black: #353535;
+    --main-black-trans: #35353533;
+    --main-black-transless: #353535cc;
     --light-black: #989898;
     --main-white: #C0C0C0;
     --main-gray: #F3F3f3;

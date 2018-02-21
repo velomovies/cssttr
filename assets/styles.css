@@ -9,6 +9,7 @@
 
 body {
     font-family: Baskerville, var(--sans-serif);
+    overflow-x: hidden;
 }
 
 h1, h2, h3 {
@@ -29,11 +30,23 @@ p, label {
 body {
     margin: 0;
     display: grid; 
-    grid-template-columns: 15% 1fr 15%;
+    grid-template-columns: 20% 1fr 20%;
+    background: #ffffff;
+}
+
+@media (max-width: 50em) {
+    body {
+        grid-template-columns: 1fr;
+    }
 }
 
 body > * {
     grid-column: 2 / -2;
+}
+
+main {
+    background: #ffffff;
+    min-height: 84.5vh;
 }
 
 nav, footer {
@@ -51,9 +64,13 @@ a {
     transition: all .3s;
 }
 
+:hover,
+:focus {
+    outline: none;
+}
+
 a:hover,
 a:focus {
-    outline: none;
     color: var(--highlight);
 }
 
@@ -76,7 +93,14 @@ ul {
 body > nav {
     display: grid;
     grid-template-columns: 1fr minmax(auto, 50%);
-    border-bottom: .1em solid var(--main-gray);
+    background: #ffffff;
+    z-index: 999;
+    box-shadow: .1em .1em 1em var(--main-gray);
+}
+
+body > nav img {
+    width: 25%;
+    margin: .5em;
 }
 
 body > nav ul {
@@ -173,6 +197,10 @@ body > nav a[aria-label="current"] {
 -----------------------
 */
 
+main {
+    padding-bottom: 1em;
+}
+
 main > h1 {
   margin: 2em 0 1.5em 0;
   font-size: 1.5em;
@@ -198,7 +226,7 @@ fieldset div {
 @media (max-width: 50em) {
   fieldset div {
     width: 100%;
-}
+    }
 }
 
 fieldset legend {
@@ -252,64 +280,79 @@ input[type="radio"]:checked + label {
 -----------------------
 */
 
-main article {
+main > article {
     display: grid;
     grid-auto-flow: column;
     grid-row-gap: 1em;
     margin-top: .1em;
     border-top: .1em solid var(--main-gray);
     background: #ffffff;
+    overflow-x: hidden;
     padding: 2em 1.5em 2em 1.5em;
     transition: all .3s;
+    transform: translateX(-999px)
 }
 
-main article:hover,
-main article:focus-within {
+main > article:nth-of-type(odd) {
+    animation: leftRight .5s forwards cubic-bezier(.75,-0.5,0,1.75);
+}
+
+main > article:nth-of-type(even) {
+    animation: rightLeft .5s forwards cubic-bezier(.75,-0.5,0,1.75);
+}
+
+main > article:nth-of-type(2) {
+    animation-delay: .3s;
+}
+
+main > article:nth-of-type(3) {
+    animation-delay: .6s;
+}
+
+main > article:hover {
    box-shadow: 0 0 .1em var(--highlight);
 }
 
-main article a {
+main > article a {
     padding: 0;
     transition: all .3s;
 }
 
-main article a:focus {
+main > article a:focus {
    border: .1em solid var(--highlight);
    padding: .2em;
 }
 
-main article h1 {
+main > article h1 {
     grid-area: title;
 }
 
-main article img {
+main > article img {
     grid-area: image;
-    width: 80%;
+    width: 60%;
 }
 
-main article p {
+main > article p {
     grid-area: info;
 }
 
-main article fieldset {
+main > article fieldset {
     grid-area: rating;
 }
 
-main article {
+main > article {
     grid-auto-flow: column;
     grid-template-areas: 
       "image title"
       "image info"
-      "image rating";
   }
 
-@media (max-width: 50em) {
-    main article {
+@media (max-width: 25em) {
+    main > article {
         grid-template-areas:
           "image" 
           "title"
           "info"
-          "rating";
       }
 }
 
@@ -323,6 +366,7 @@ progress {
     width: 100%;
     height: .5em;
     background-color: #ffffff;
+    animation: width 1s;
 }
 
 progress::-webkit-progress-bar {
@@ -383,11 +427,148 @@ progress + ol li:nth-of-type(2):before {
 -----------------------
 */
 
+
+
 nav + form {
     display: grid;
-    background-color: #ffffff;
-    box-shadow: .1em .1em .2em var(--main-white);
+    margin-top: 2em;
+    grid-auto-flow: column;
+    grid-gap: .5em;
+}
+
+form article,
+form > div {
+    height: 50vh;
     padding: 1em;
+    background-color: #ffffff;
+    box-shadow: .1em .1em .2em var(--main-white);   
+    animation: inOut 1s forwards; 
+}
+
+form article {
+    background-image: url('https://i1.wp.com/www.sensationrock.net/wp-content/uploads/2017/06/MonsterMagnet0.jpg?fit=600%2C600&ssl=1');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;  
+}
+
+form article h2 {
+    color: #ffffff;
+    opacity: 1;
+    transition: all .3s;
+}
+
+form article:hover h2 {
+    opacity: .5;
+}
+
+form > div {
+    display: grid;
+    grid-gap: 1em;
+}
+
+form > div > label {
+    position: absolute;
+    left: -999px;
+    opacity: 0;
+}
+
+form > div > input:focus::-webkit-input-placeholder {
+    color: var(--highlight);
+}
+
+form > div > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type="checkbox"] + label {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: .5em;
+}
+
+input[type="checkbox"] + label:before {
+    content: '';
+    width: 1.2em;
+    height: 1.2em;
+    border: .1em solid var(--light-black);
+    box-sizing: border-box;
+}
+
+input[type="checkbox"]:checked + label:before {
+    content: '';
+    font-family: FontAwesome;
+    font-size: 1em;
+    padding: 0 1em 1em 0;
+    color: #ffffff;
+    background: var(--highlight);
+    border: .1em solid transparent;
+}
+
+input[type="checkbox"]:focus + label {
+    color: var(--highlight);  
+}
+
+input[type="checkbox"]:focus + label:before {
+    border: .1em solid var(--highlight);
+}
+
+input[type="checkbox"] + a {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+}
+
+form div input {
+    font-family: var(--sans-serif);
+    height: 4em;
+    padding-left: 1em;
+}
+
+form div input:invalid {
+    border: none;
+    border-bottom: .1em solid var(--light-black);
+    box-shadow: .2em 0 var(--highlight);
+    transition: all .3s;
+}
+
+form div input:valid,
+form div input:valid:focus {
+    border: none;
+    box-shadow: .3em 0 green;
+    border-bottom: .2em solid green;
+    transition: all .3s;
+}
+
+form div input:invalid ~ button {
+    background: var(--main-gray);
+}
+
+form div input ~ button:hover,
+form div input ~ button:focus {
+    transform: scale(1.05);
+    box-shadow: 0 0 .1em var(--highlight);
+}
+
+form div input:focus {
+    border-bottom: .1em solid var(--highlight);
+}
+
+form div input[type="checkbox"] {
+    position: absolute;
+    left: -999px;
+}
+
+button, input[type='submit'] {
+    background: var(--highlight);
+    border: 0;
+    padding: 1em;
+    height: 4em;
+    width: 100%;
+    color: #ffffff;
+    cursor: url(images/cursor.png), pointer;
+    transition: all .3s;
 }
 
 /*
@@ -431,9 +612,121 @@ figure div {
 
 figure img {
     opacity: 0;
-    animation: opacityInOut 1s forwards;
+    animation: inOut 1s forwards;
     animation-delay: 1s;
 }
+
+/*
+-----------------------
+ --- ORDERED LIST ---- 
+-----------------------
+*/
+
+main > ol {
+    display: grid;
+    list-style: none;
+    padding: 1em;
+    box-shadow: .1em .1em .2em var(--main-white);  
+    text-align: center; 
+}
+
+main > ol span {
+    color: var(--light-black);
+    padding: .5em 1em;
+    position: relative;
+}
+
+main > ol span:before,
+main > ol span:after {
+    content: '';
+    position: absolute;
+    border-top: .1em solid var(--main-gray);
+    width: 30%;
+    top: .9em; 
+}
+
+main > ol span:before {
+    left: 0;
+}
+
+main > ol span:after {
+    right: 0;
+}
+
+main > ol span div {
+    background: #ffffff;
+}
+
+main > ol li {
+    display: grid;
+    background: var(--main-black-transless);
+    padding: 1em;
+    border-radius: .5em;
+    text-align: left;
+    margin: 1em;
+    min-width: 10em;
+    max-width: 50%;
+    opacity: 0;
+    animation: inOut 1s forwards;
+}
+
+main > ol li:nth-of-type(2) {
+    animation-delay: .3s
+}
+
+main > ol li:nth-of-type(1) {
+    animation-delay: .6s
+}
+
+main > ol li > p {
+    color: #ffffff;
+}
+
+main > ol li:nth-of-type(even) {
+    background: var(--main-black-trans);
+}
+
+main > ol li:nth-of-type(even) p {
+    color: var(--main-black);
+}
+
+main > ol li p[data-status="DELIVERED"]:before {
+    content: "\2713 ";
+}
+
+main > ol li p[data-status="READ"]:before {
+    content: "\2713 \2713 ";
+}
+
+main > ol li footer {
+    display: flex;
+    flex-direction: row;
+}
+
+main > ol li footer time {
+    font-family: var(--sans-serif);
+    color: var(--light-black);
+}
+
+main > ol li:nth-of-type(odd) {
+    justify-self: end;
+}
+
+form label[for="field-message"] {
+    position: absolute;
+    left: -999px;
+    opacity: 0;
+}
+
+ol + form {
+    display: grid;
+    grid-auto-flow: column;
+}
+
+ol + form textarea {
+    resize: none;
+}
+
 
 /*
 -----------------------
@@ -443,11 +736,8 @@ figure img {
 
 body > footer {
     background: var(--main-black);
-    background-image: linear-gradient(var(--light-black) 1px, transparent 0),
-                      linear-gradient(90deg, var(--light-black) 1px, transparent 0);
     background-size: 1em 1em;
     color: var(--main-gray);
-    margin-top: 1em;
     padding: 1em;
     text-align: center;
 }
@@ -456,8 +746,14 @@ footer a {
     color: var(--main-gray);
 }
 
+/*
+-----------------------
+ ----- KEYFRAMES ----- 
+-----------------------
+*/
+
 @keyframes breathing {
-  0 {
+  0% {
     transform: scale(1);
   }
   50% {
@@ -469,7 +765,7 @@ footer a {
 }
 
 @keyframes breathing2 {
-    0 {
+    0% {
       transform: scale(1.5);
     }
     50% {
@@ -486,14 +782,45 @@ footer a {
     }
   }
 
-@keyframes opacityInOut {
+@keyframes inOut {
    from { 
       opacity: 0; 
+      transform: translatey(1.5em);
    }
    to {
        opacity: 1;
+       transform: translatey(0);
    }
   }
+
+@keyframes width {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes leftRight {
+    from {
+        transform: translateX(-999px)
+    }
+    to {
+        transform: translateX(0)
+    }
+}  
+
+@keyframes rightLeft {
+    from {
+        transform: translateX(999px)
+    }
+    to {
+        transform: translateX(0)
+    }
+} 
+
+
 
 
 
