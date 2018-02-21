@@ -1,6 +1,6 @@
 # Monster Magnet
 
-CSS To the Rescue teached us to make a website for a specific user. We could only use the components provided by [`Vasilis van Gemert`](https://vasilis.nl/). I made an website about monster magnet with all components that everyone had to use. One little detail: *NO CSS CLASSES*
+CSS To the Rescue teached us to make a website for a specific user. We could only use the components provided by [`Vasilis van Gemert`](https://vasilis.nl/). I made an website about monster magnet with all components that everyone had to use. One little detail: **NO CSS CLASSES**
 
 ![Preview image](assets/images/MonsterMagnet.png)
 > My work
