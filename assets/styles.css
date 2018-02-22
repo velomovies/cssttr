@@ -124,7 +124,7 @@ body > nav ul li a {
 body > nav ul li:hover a,
 body > nav ul li:focus-within a {
     color: var(--main-black);
-    transform: translateY(.3em) translateZ(0);
+    transform: translateY(.3em) translateZ(0) scale(1.1);
 }
 
 body > nav ul ul li:focus-within a:before {
@@ -253,7 +253,8 @@ main > article:nth-of-type(3) {
     animation-delay: .6s;
 }
 
-main > article:hover {
+main > article:hover,
+main > article:focus-within {
    box-shadow: 0 0 .1em var(--highlight);
 }
 
@@ -264,14 +265,14 @@ main > article a {
 
 main > article a:focus {
    border: .1em solid var(--highlight);
-   padding: .2em;
+   padding: .2em
 }
 
 main > article h1 {
     grid-area: title;
 }
 
-main h1 + article > h1 {
+main h1 ~ article > h1 {
     margin: 0;
 }
 
